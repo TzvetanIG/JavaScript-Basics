@@ -125,6 +125,9 @@ function clearTable() {
 
 function play(e) {
     var td = e.target;
+    if(td.innerHTML){
+        return;
+    }
     td.innerHTML = 'X';
     table[parseInt(td.id)] = 'X';
     counter++;
