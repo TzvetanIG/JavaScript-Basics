@@ -1,5 +1,8 @@
 var table = new Array(9);
 var counter = 0;
+var round = 1;
+var humanWins = 0;
+computerWins = 0;
 
 var winCombinations = [
     [0, 1, 2],
@@ -38,6 +41,8 @@ var winningSchemes = [
     [0, 7, 6, 3, 8],
     [2, 7, 8, 5, 6]
 ];
+var nScheme = Math.round(Math.random() * winningSchemes.length);
+
 
 var htmlTable = document.getElementById('tic-tac-toe');
 var cells = htmlTable.getElementsByTagName('td');
@@ -87,7 +92,6 @@ function checkForPossibleWinCombination(value) {
 
 function getMoveOfScheme() {
     var cellNumber = false;
-    var nScheme = Math.round(Math.random() * winningSchemes.length);
     while (cellNumber == false && nScheme < winningSchemes.length) {
         for (var i = winningSchemes[nScheme].length - 1; i >= 0; i--) {
             if (table[winningSchemes[nScheme][i]] == 'X') {
@@ -125,7 +129,7 @@ function clearTable() {
 
 function play(e) {
     var td = e.target;
-    if(td.innerHTML){
+    if (td.innerHTML) {
         return;
     }
     td.innerHTML = 'X';
@@ -135,26 +139,32 @@ function play(e) {
     if (checkForWinCombination()) {
         alert('Вие спечелихте!\n Започни нова игра.');
         clearTable();
-        return;
+        nScheme = Math.round(Math.random() * winningSchemes.length);
+        humanWins++;
+        document.getElementById('human-win').innerHTML = 'Играч: ' + humanWins;
+        round++;
+        document.getElementById('round').innerHTML = 'Рунд: ' + round;
     }
 
-    if(counter == 9){
+    if (counter == 9) {
         alert('Няма победител!\n Започни нова игра.');
         clearTable();
-        return;
+        nScheme = Math.round(Math.random() * winningSchemes.length);
+        round++;
+        document.getElementById('round').innerHTML = 'Рунд: ' + round;
     }
 
     var playCell = checkForPossibleWinCombination('O');
 
-    if (playCell == false) {
+    if (playCell === false) {
         playCell = checkForPossibleWinCombination('X');
     }
 
-    if (playCell == false) {
+    if (playCell === false) {
         playCell = getMoveOfScheme();
     }
 
-    if (playCell == false) {
+    if (playCell === false) {
         playCell = randomMove();
     }
 
@@ -162,12 +172,18 @@ function play(e) {
 
     if (checkForWinCombination()) {
         alert('Вие загубихте!\n Започни нова игра.');
-            clearTable();
+        clearTable();
+        computerWins++;
+        document.getElementById('comp-win').innerHTML = 'Компютър: ' + computerWins;
+        round++;
+        document.getElementById('round').innerHTML = 'Рунд: ' + round;
     }
 
-    if(counter == 9){
-       alert('Няма победител!\n Започни нова игра.');
-       clearTable();
+    if (counter == 9) {
+        alert('Няма победител!\n Започни нова игра.');
+        clearTable();
+        round++;
+        document.getElementById('round').innerHTML = 'Рунд: ' + round;
     }
 }
 

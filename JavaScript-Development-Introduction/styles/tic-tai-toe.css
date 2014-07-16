@@ -13,3 +13,8 @@ table td{
 table td.win{
     color: red;
 }
+
+#result div{
+    margin-left: 20px;
+    font-size: 30px;
+}
