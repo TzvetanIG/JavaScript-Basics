@@ -1,6 +1,6 @@
 var table = new Array(9);
 var counter = 0;
-var round = 1;
+var round = 0;
 var humanWins = 0;
 computerWins = 0;
 
