@@ -1,1 +1,0 @@
-console.info(eval(2^2 + ));
