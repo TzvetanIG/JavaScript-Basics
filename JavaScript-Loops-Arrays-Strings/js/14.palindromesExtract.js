@@ -1,6 +1,18 @@
 function findPalindromes(inputString) {
-    var words = inputString.split(/[\b\W ]+/);
-    return words;
+    var words = inputString.toLowerCase().split(/[\W]+/);
+    var palindromes = [];
+    if(words[words.length -1] === ''){
+        words.pop();
+    }
+
+    var i;
+
+    for(i in words){
+        if(words[i].split('').reverse().join('') === words[i]){
+            palindromes.push(words[i]);
+        }
+    }
+    return palindromes.join(', ');
 }
 
-findPalindromes('There is a man, his name was Bob.');
+console.log(findPalindromes('There is a man, his name was Bob.'));
