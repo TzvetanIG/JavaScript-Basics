@@ -18,18 +18,31 @@ function findMostFreqWord(inputText) {
     }
 
     var maxCountTimes = 0;
-    var value;
+    var frequentWords = [];
+    var key;
 
-    for (i = 0; i < results.length; i+=1){
-        if(maxCountTimes < results[i]){
-            maxCountTimes = results[i];
-            value = i;
+    for (key in results){
+        if(maxCountTimes < results[key]){
+            maxCountTimes = results[key];
+            frequentWords =[];
+            frequentWords.push(key);
+        } else if (maxCountTimes === results[key]){
+            frequentWords.push(key);
         }
     }
 
-    return value  + ' (' + maxCountTimes + ' times)';
+    frequentWords.sort();
+
+    var outputString = '';
+    i = 0;
+
+    for(i in frequentWords){
+        outputString +=  frequentWords[i] + ' -> ' + maxCountTimes + ' times \n'
+    }
+
+    return outputString;
 }
 
-console.log(findMostFreqWord());
-console.log(findMostFreqWord());
-console.log(findMostFreqWord());
+console.log(findMostFreqWord('in the middle of the night'));
+console.log(findMostFreqWord('Welcome to SoftUni. Welcome to Java. Welcome everyone.'));
+console.log(findMostFreqWord('Hello my friend, hello my darling. Come on, come here. Welcome, welcome darling.'));
