@@ -1,7 +1,7 @@
 function findMostFreqNum(inputValue) {
 
-    var results = [];
-    var i;
+    var results = [],
+        i;
 
     for (i in inputValue) {
         if (inputValue[i] in results) {
@@ -11,17 +11,17 @@ function findMostFreqNum(inputValue) {
         }
     }
 
-    var maxCountTimes = 0;
-    var value;
+    var maxCountTimes = 0,
+        value;
 
-    for (i = 0; i < results.length; i+=1){
-        if(maxCountTimes < results[i]){
+    for (i = 0; i < results.length; i += 1) {
+        if (maxCountTimes < results[i]) {
             maxCountTimes = results[i];
             value = i;
         }
     }
 
-    return value  + ' (' + maxCountTimes + ' times)';
+    return value + ' (' + maxCountTimes + ' times)';
 }
 
 console.log(findMostFreqNum([4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3]));

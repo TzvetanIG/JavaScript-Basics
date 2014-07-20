@@ -1,19 +1,18 @@
 function findMaxSequence(sequence) {
-    var subSequences = [];
-    var start = 0;
-    var end = start + 1;
-
-    var i;
+    var subSequences = [],
+        start = 0,
+        end = start + 1,
+        i;
 
     do {
-        while(sequence[start] === sequence[end]){
+        while (sequence[start] === sequence[end]) {
             end++;
         }
 
         subSequences.push({start: start, end: end});
         start = end;
         end++;
-    } while(end < sequence.length);
+    } while (end < sequence.length);
 
     //Sort subSequences by length (length = end - start). The last element is sequence with maximal length.
     subSequences.sort(function () {

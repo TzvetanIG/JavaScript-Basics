@@ -1,39 +1,43 @@
 function sortArray(arr) {
 
-    function min() {
+    function min(startIndex) {
 
-        var minValue = this[0];
-        var i;
+        var minValue = this[startIndex],
+            indexMinValue = startIndex,
+            len = this.length,
+            i;
 
-        for (i in this) {
+        for (i = startIndex; i < len; i++) {
             if (minValue > this[i]) {
                 minValue = this[i];
+                indexMinValue = i;
             }
         }
 
-        return minValue;
+        return indexMinValue;
     }
 
-    function remove(element) {
-        var index = this.indexOf(element);
-        if(index == -1){ return; }
-        this.splice(index, 1);
+    function swap(firstIndex, secondIndex) {
+        var temp = this[firstIndex];
+        this[firstIndex] = this[secondIndex];
+        this[secondIndex] = temp;
     }
 
     Array.prototype.min = min;
-    Array.prototype.remove = remove;
+    Array.prototype.swap = swap;
 
-    var i;
-    var newArray = [];
-    var  minValue;
+    var len = arr.length,
+        currentIndex,
+        minValueIndex;
 
-    while(arr.length  > 0){
-        minValue = arr.min();
-        newArray.push(minValue);
-        arr.remove(minValue);
+    for(currentIndex = 0; currentIndex < len; currentIndex++){
+        minValueIndex = arr.min(currentIndex);
+        if(currentIndex !== minValueIndex){
+            arr.swap(currentIndex, minValueIndex)
+        }
     }
 
-    return newArray;
+    return arr;
 }
 
 console.log(sortArray([5, 4, 3, 2, 1]).join(', '));

@@ -1,14 +1,16 @@
 function findPalindromes(inputString) {
-    var words = inputString.toLowerCase().split(/[\W]+/);
-    var palindromes = [];
-    if(words[words.length -1] === ''){
+
+    var words = inputString.toLowerCase().split(/[\W]+/),
+        palindromes = [];
+
+    if (words[words.length - 1] === '') {
         words.pop();
     }
 
     var i;
 
-    for(i in words){
-        if(words[i].split('').reverse().join('') === words[i]){
+    for (i in words) {
+        if (words[i].split('').reverse().join('') === words[i]) {
             palindromes.push(words[i]);
         }
     }

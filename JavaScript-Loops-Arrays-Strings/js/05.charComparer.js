@@ -5,8 +5,8 @@ function compareChars(firstArray, secondArray) {
         return 'Not Equal';
     }
 
-    var i;
-    var lengthArr = firstArray.length;
+    var lengthArr = firstArray.length,
+        i;
 
     for (i = 0; i < lengthArr; i += 1) {
         if (firstArray[i] !== secondArray[i]) {

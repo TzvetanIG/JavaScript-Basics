@@ -1,5 +1,6 @@
 function findMinAndMax(value) {
     var numbers = value;
+
     numbers.sort(function () {
         return arguments[0] - arguments[1];
     });

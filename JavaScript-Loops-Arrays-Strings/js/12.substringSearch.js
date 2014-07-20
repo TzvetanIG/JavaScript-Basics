@@ -1,6 +1,6 @@
 function countSubstringOccur(inputArray) {
-    var keyword = inputArray[0].toLowerCase();
-    var text = inputArray[1].toLowerCase();
+    var keyword = inputArray[0].toLowerCase(),
+        text = inputArray[1].toLowerCase();
 
     var parts = text.split(keyword);
 

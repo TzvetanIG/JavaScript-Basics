@@ -1,6 +1,6 @@
 function displayProperties() {
-    var docProperties = [];
-    var property;
+    var docProperties = [],
+        property;
 
     for (property in document) {
         docProperties.push(property);

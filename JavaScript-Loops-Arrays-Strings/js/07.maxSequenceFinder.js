@@ -1,28 +1,28 @@
 function findMaxSequence(sequence) {
-    var subSequences = [];
-    var start = 0;
-    var end = 0;
+    var subSequences = [],
+        start = 0,
+        end = 0,
+        len = sequence.length,
+        i;
 
-    var i;
-    var len = sequence.length;
 
-    for( i = 0; i < len - 1; i+=1 ){
+    for (i = 0; i < len - 1; i += 1) {
         start = i;
         end = start;
 
-        while( sequence[end] < sequence[end+1]){
+        while (sequence[end] < sequence[end + 1]) {
             end++;
         }
 
-        if (start < end){
-            subSequences.push({start: start, end: end+1});
+        if (start < end) {
+            subSequences.push({start: start, end: end + 1});
         }
     }
 
-    var maxSequence;
-    var result;
+    var maxSequence,
+        result;
 
-    if(subSequences.length > 0){
+    if (subSequences.length > 0) {
 
         subSequences.sort(function () {
             return (arguments[0].end - arguments[0].start ) - (arguments[1].end - arguments[1].start);
@@ -41,5 +41,3 @@ function findMaxSequence(sequence) {
 console.log(findMaxSequence([3, 2, 3, 4, 2, 2, 4]));
 console.log(findMaxSequence([3, 5, 4, 6, 1, 2, 3, 6, 10, 32]));
 console.log(findMaxSequence([3, 2, 1]));
-
-console.log(Math.min());

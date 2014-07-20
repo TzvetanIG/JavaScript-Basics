@@ -1,21 +1,20 @@
 function checkBrackets(expression) {
-    var bracketsCount = 0;
+    var bracketsCount = 0,
+        i;
 
-    var i;
-
-    for(i = 0; i < expression.length; i += 1){
-        if(expression[i] == '(') {
+    for (i = 0; i < expression.length; i += 1) {
+        if (expression[i] == '(') {
             bracketsCount++;
         } else if (expression[i] == ')') {
             bracketsCount--;
         }
 
-        if(bracketsCount < 0) {
+        if (bracketsCount < 0) {
             return 'incorrect';
         }
     }
 
-    if(bracketsCount > 0) {
+    if (bracketsCount > 0) {
         return 'incorrect';
     } else {
         return 'correct'
