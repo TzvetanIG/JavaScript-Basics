@@ -5,7 +5,7 @@ function findNthDigit(arr) {
 
         len = numberAsString.length,
 
-        result = "The number doesn't have 6 digits";
+        result = "The number doesn't have " + digitPosition + ' digits';
 
     if(digitPosition <= len){
          result = numberAsString[len - digitPosition];
