@@ -9,8 +9,9 @@ Person.prototype.toString = function toString() {
     return this.firstName + ' ' + this.lastName + '(age ' + this.age + ')';
 };
 
-function group(persons, key) {
-    var groups = [];
+function group(peoples, key) {
+    var groups = [],
+        persons = peoples.slice(0);
 
     while (persons.length > 0) {
 
@@ -19,17 +20,17 @@ function group(persons, key) {
 
         switch (key) {
             case 'firstname':
-                index = person.firstName;
+                index = 'Group ' + person.firstName;
                 break;
             case 'age':
-                index = person.age;
+                index = 'Group ' + person.age;
                 break;
-            case 'lastName':
-                index = person.lastName;
+            case 'lastname':
+                index = 'Group ' + person.lastName;
                 break;
             default :
                 return persons;
-            break;
+                break;
         }
 
         if (!groups[index]) {
@@ -52,3 +53,7 @@ persons.push(new Person("Jon", "Skeet", 38));
 
 
 console.log(group(persons, 'firstname'));
+console.log('\n');
+console.log(group(persons, 'age'));
+console.log('\n');
+console.log(group(persons, 'lastname'));
