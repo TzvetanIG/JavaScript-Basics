@@ -12,6 +12,7 @@ function getPreviousValue(){
     textField.value = previousValue;
     textField.style.background = '';
     textField.disabled = false;
+    textField.focus();
 }
 
 var textField = document.getElementById('textField'),
