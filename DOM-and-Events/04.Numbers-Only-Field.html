@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script defer src="js/04.NumbersOnlyField.js"></script>
+    <title>Problem 4. Numbers Only Field</title>
+</head>
+<body>
+    <form action="/" method="get">
+        <input id="textField" type="text" name="textField">
+    </form>
+</body>
+</html>
